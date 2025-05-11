@@ -1,0 +1,28 @@
+tradeshows:
+  - name: CES
+    url: https://www.ces.tech/Events-Programs/Exhibitor-Directory
+  - name: MWC Barcelona
+    url: https://www.mwcbarcelona.com/exhibitors
+  - name: IFA Berlin
+    url: https://b2b.ifa-berlin.com/exhibitors
+  - name: Web Summit
+    url: https://websummit.com/exhibitors
+  - name: NRF Big Show
+    url: https://nrfbigshow.nrf.com/exhibitors
+  - name: Canton Fair
+    url: https://www.cantonfair.org.cn/en-US/exhibitorDirectory
+  - name: GITEX Global
+    url: https://www.gitex.com/exhibitors
+  - name: Hannover Messe
+    url: https://www.hannovermesse.de/en/Exhibitors-Products
+  - name: Dreamforce
+    url: https://www.salesforce.com/dreamforce/exhibitor-list
+  - name: SXSW
+    url: https://www.sxsw.com/exhibitors
+amazon:
+  base_search_url: https://www.amazon.com/s?k=
+similarweb:
+  api_key: YOUR_KEY_HERE
+database:
+  dialect: sqlite
+  filename: data/brands.db
