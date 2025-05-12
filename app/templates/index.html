@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tradeshow Brand Checker</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Select a Tradeshow</h1>
+  <select id="show-select">
+    {% for show in tradeshows %}
+      <option value="{{ show.name }}">{{ show.name }}</option>
+    {% endfor %}
+  </select>
+  <button id="start-btn">Start</button>
+
+  <div id="status-log"></div>
+
+  <script>
+    const socket = io();
+    const statusLog = document.getElementById('status-log');
+
+    socket.on('status', data => {
+      const p = document.createElement('p');
+      p.textContent = data.message;
+      statusLog.appendChild(p);
+    });
+
+    document.getElementById('start-btn').onclick = () => {
+      const show = document.getElementById('show-select').value;
+      fetch('/start', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({show})
+      });
+    };
+  </script>
+</body>
+</html>
